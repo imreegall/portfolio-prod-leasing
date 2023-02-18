@@ -1,0 +1,53 @@
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -khtml-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;
+  behavior: url(border-radius.htc);
+}
+
+@mixin background-image-settings($size: cover, $repeat: no-repeat, $pos: center center) {
+  -moz-background-size: $size;
+  -webkit-background-size: $size;
+  -o-background-size: $size;
+  background-size: $size;
+  background-repeat: $repeat;
+  background-position: $pos;
+}
+
+@mixin background-image($url) {
+  background-image: url($url);
+  filter:progid:DXImageTransform.Microsoft.AlphaImageLoader( src=$url, sizingMethod='scale');
+}
+
+@mixin background-image-gradient($from, $to) {
+  background-image: -webkit-gradient($from, $to);
+  background-image: -webkit-linear-gradient($from, $to);
+  background-image: -moz-linear-gradient($from, $to);
+  background-image: -ms-linear-gradient($from, $to);
+  background-image: -o-linear-gradient($from, $to);
+  background-image: linear-gradient($from, $to);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$from, endColorstr=$to);
+  -pie-background: 	linear-gradient(to bottom, $from, $to);
+}
+
+@mixin box-sizing($type) {
+  -webkit-box-sizing: $type;
+  -moz-box-sizing: $type;
+  box-sizing: $type;
+}
+
+@mixin opacity($value) {
+  filter: alpha(opacity=$value);
+  -moz-opacity: $value / 100;
+  -khtml-opacity: $value / 100;
+  opacity: $value / 100;
+}
+
+@mixin animation($value) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  -ms-animation: $value;
+  animation: $value;
+}

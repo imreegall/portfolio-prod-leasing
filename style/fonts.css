@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: local('Gilroy Regular'), local('Gilroy-Regular'),
+    url('../fonts/Gilroy/Gilroy-Regular.woff2') format('woff2'),
+    url('../fonts/Gilroy/Gilroy-Regular.woff') format('woff'),
+    url('../fonts/Gilroy/Gilroy-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nekst';
+    src: url('../fonts/Nekst/Nekst-Black.eot');
+    src: local('Nekst Black'), local('Nekst-Black'),
+    url('../fonts/Nekst/Nekst-Black.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Nekst/Nekst-Black.woff2') format('woff2'),
+    url('../fonts/Nekst/Nekst-Black.woff') format('woff'),
+    url('../fonts/Nekst/Nekst-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* первый заголовок -*/
+h1 {
+    font-family: Nekst, serif;
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 90%;
+    color: #111111;
+}
+
+/* числа в результатах договора -*/
+h2 {
+    font-family: Nekst, serif;
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 90%;
+    color: #575757;
+}
+
+/* кнопка, числа в формах, "мес" и "₽" -*/
+h3,
+button {
+    font-family: Nekst, serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 36px;
+}
+
+h3 {
+    color: #575757;
+}
+
+/* процент первоначального взноса -*/
+h4 {
+    font-family: Nekst, serif;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 120%;
+    color: #575757;
+}
+
+/* описание верхних форм -*/
+h5 {
+    font-family: Gilroy, serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #575757;
+}
+
+/* описание нижних форм -*/
+h6 {
+    font-family: Gilroy, serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #575757;
+}
+
+/* для самых маленьких экранов -*/
+@media (max-width: 767px) {
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 22px;
+        line-height: 20px;
+    }
+
+    h3,
+    h4 {
+        font-size: 22px;
+        line-height: 20px;
+        color: #333E48;
+    }
+
+    button {
+        font-size: 22px;
+        line-height: 20px;
+    }
+
+    h5 {
+        font-size: 14px;
+        line-height: 136%;
+        color: #333E48;
+    }
+
+    h6 {
+        font-size: 14px;
+        line-height: 136%;
+    }
+}
+
+/* для экранов менее 1440 пикселей в ширину -*/
+@media (max-width: 1439px) {
+    h2,
+    h6 {
+        color: #333333;
+    }
+}

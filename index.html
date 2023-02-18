@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор лизинга авто</title>
+    <meta name="description" content="Сайт для рассчёта стоимости лизинга авто">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <script src="script/script.js" defer></script>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Рассчитайте стоимость<br>
+                автомобиля в&nbsp;лизинг</h1>
+        </header>
+
+        <div class="calc">
+            <!-- Формы для ввода -->
+            <div class="formInput">
+                <!-- Стоимость автомобиля -->
+                <div class="cost">
+                    <h5>Стоимость автомобиля</h5>
+
+                    <div class="form">
+                        <input id="costForm" type="text">
+                        <h3>₽</h3>
+                    </div>
+
+                    <div class="rangeCont">
+                        <input id="costRange" type="range" value="3500000" min="1000000" max="6000000">
+                    </div>
+                </div>
+
+                <!-- Первоначальная стоимость -->
+                <div class="firstPay">
+                    <h5>Первоначальный взнос</h5>
+
+                    <div class="form">
+                        <div class="firstPayFormParent">
+                            <div class="firstPayFormChild"></div>
+                            <input id="firstPayForm" type="text">
+                        </div>
+                        <div class="formOpt">
+                            <h4>13</h4>
+                        </div>
+                    </div>
+
+                    <div class="rangeCont">
+                        <input id="firstPayRange" type="range" value="24" min="10" max="60" step="1">
+                    </div>
+                </div>
+
+                <!-- Срок лизинга -->
+                <div class="date">
+                    <h5>Срок лизинга</h5>
+
+                    <div class="form">
+                        <input id="dateForm" type="text" value="24">
+                        <h3>мес.</h3>
+                    </div>
+
+                    <div class="rangeCont">
+                        <input id="dateRange" type="range" value="24" min="1" max="60">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Результаты -->
+            <div class="results">
+                <div class="payInfo">
+                    <!-- Сумма договора -->
+                    <div class="sum">
+                        <h6>Сумма договора лизинга</h6>
+                        <div class="sumValue">
+                            <h2>4467313</h2>
+                        </div>
+                    </div>
+
+                    <!-- Ежемесячный платеж -->
+                    <div class="monthlyPay">
+                        <h6>Ежемесячный платеж от</h6>
+                        <div class="monthlyPayValue">
+                            <h2>114455</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопка для заявки -->
+                <div class="button">
+                    <button class="whiteText activeButton" id="sendInfo">
+                        Оставить заявку
+                    </button>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

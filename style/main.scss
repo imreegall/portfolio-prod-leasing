@@ -1,0 +1,384 @@
+@import url('fonts.css');
+@import url('keyframes.css');
+@import 'mixin';
+@import 'reset';
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  @media (min-width: 1440px) {
+    padding: 48px 48px 0 48px;
+  }
+
+  @media (min-width: 1024px) and (max-width: 1439px){
+    padding: 100px 48px 120px 48px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    padding: 64px 36px 156px 36px;
+  }
+
+  @media (max-width: 767px){
+    padding: 44px 20px 64px 20px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    gap: 32px;
+
+    @media (min-width: 768px) and (max-width: 1439px){
+      gap: 44px;
+    }
+
+    .calc {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+
+      @media (min-width: 1440px) {
+        gap: 51px;
+      }
+
+      @media (min-width: 768px) and (max-width: 1439px){
+        gap: 44px;
+      }
+
+      @media (max-width: 767px) {
+        gap: 25px;
+      }
+
+      > div {
+        width: 100%;
+        display: flex;
+
+        &.formInput {
+          @media (max-width: 1439px) {
+            flex-direction: column;
+          }
+
+          @media (min-width: 768px) {
+            gap: 32px;
+          }
+
+          @media (max-width: 767px) {
+            gap: 16px;
+          }
+
+          > div {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .form {
+              width: 100%;
+              padding: 16px 24px;
+              gap: 24px;
+              @include border-radius(16px);
+              background-color: #F3F3F4;
+              border: 2px solid #F3F3F4;
+              display: flex;
+              align-items: center;
+
+              @media (min-width: 768px) {
+                margin-top: 24px;
+              }
+
+              @media (max-width: 767px) {
+                margin-top: 8px;
+              }
+
+              &.opacity {
+                @include opacity(40);
+              }
+
+              input[type=text] {
+                font-family: 'Nekst', serif;
+                font-weight: 900;
+                font-size: 30px;
+                line-height: 36px;
+                background-color: rgba(255, 255, 255, 0);
+                width: 100%;
+                outline: none;
+
+                @media (min-width: 768px) {
+                  color: #575757;
+                }
+
+                @media (max-width: 767px) {
+                  color: #333E48;
+                }
+              }
+            }
+
+            &.firstPay .form {
+              padding: 7px 7px 7px 24px;
+
+              .firstPayFormParent {
+                display: flex;
+                align-items: center;
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+                .firstPayFormChild {
+                  position: absolute;
+                  font-family: 'Nekst', serif;
+                  font-weight: 900;
+                  font-size: 30px;
+                  line-height: 36px;
+                  white-space: nowrap;
+                  right: 0;
+                  min-width: 100%;
+                  overflow: hidden;
+                  z-index: 0;
+
+                  @media (min-width: 768px) {
+                    color: #575757;
+                  }
+
+                  @media (max-width: 767px) {
+                    color: #333E48;
+                  }
+
+                  &:after {
+                    content: " ₽";
+                  }
+
+                  &.opacity {
+                    @include opacity(0);
+                  }
+                }
+
+                input[type=text] {
+                  z-index: 1;
+                  position: absolute;
+
+                  &.opacity {
+                    @include opacity(0);
+                  }
+                }
+              }
+
+              .formOpt {
+                padding: 15px 17px;
+                background-color: #EBEBEC;
+                @include border-radius(16px);
+                display: flex;
+
+                > *::after {
+                  content: "%";
+                }
+              }
+            }
+
+            .rangeCont {
+              height: 0;
+              width: 100%;
+              padding: 0 24px;
+              position: relative;
+              top: -14.5px;
+
+              &.opacity {
+                @include opacity(40);
+              }
+
+              input[type=range] {
+                -webkit-appearance: none;
+                height: 2px;
+                background-color: #E1E1E1;
+                @include background-image-gradient(#FF9514, #FF9514);
+                @include background-image-settings(70% 100%, no-repeat, none);
+                width: 100%;
+                @include border-radius(999px 0 0 0);
+                cursor: pointer;
+
+                &:hover {
+                  height: 1px;
+                }
+
+                // chrome thumb
+                &::-webkit-slider-thumb {
+                  -webkit-appearance: none;
+                  height: 20px;
+                  width: 20px;
+                  @include border-radius(999px);
+                  background-color: #FF9514;
+                  border: none;
+
+                  &:hover {
+                    height: 24px;
+                    width: 24px;
+                  }
+
+                  &:active {
+                    height: 20px;
+                    width: 20px;
+                  }
+                }
+
+                // mozilla thumb
+                &::-moz-range-thumb {
+                  -webkit-appearance: none;
+                  height: 20px;
+                  width: 20px;
+                  @include border-radius(999px);
+                  background-color: #FF9514;
+                  border: none;
+
+                  &:hover {
+                    height: 24px;
+                    width: 24px;
+                  }
+
+                  &:active {
+                    height: 20px;
+                    width: 20px;
+                  }
+                }
+
+                // IE thumb
+                &::-ms-thumb {
+                  -webkit-appearance: none;
+                  height: 20px;
+                  width: 20px;
+                  @include border-radius(999px);
+                  background-color: #FF9514;
+                  border: none;
+
+                  &:hover {
+                    height: 24px;
+                    width: 24px;
+                  }
+
+                  &:active {
+                    height: 20px;
+                    width: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.results {
+          @media (min-width: 1440px) {
+            align-items: flex-end;
+            gap: 64px;
+          }
+
+          @media (max-width: 1439px) {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          @media (min-width: 768px) and (max-width: 1439px) {
+            gap: 44px;
+          }
+
+          @media (max-width: 767px) {
+            gap: 32px;
+          }
+
+          > .payInfo {
+            display: flex;
+            width: 100%;
+
+            @media (min-width: 1440px) {
+              gap: 64px;
+            }
+
+            @media (min-width: 768px) and (max-width: 1439px) {
+              gap: 32px;
+            }
+
+            @media (max-width: 767px) {
+              flex-direction: column;
+              gap: 29px;
+            }
+
+            > div {
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+
+              @media (min-width: 768px) {
+                gap: 8px;
+              }
+
+              @media (max-width: 767px) {
+                gap: 2px;
+              }
+            }
+          }
+
+          .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media (min-width: 1439px) {
+              width: 50%;
+            }
+
+            @media (max-width: 767px) {
+              width: 100%;
+            }
+
+            button {
+              background-color: #FF9514;
+              @include border-radius(999px);
+              position: relative;
+              outline: none;
+              color: white;
+              width: 100%;
+
+              @media (min-width: 1440px) {
+                padding: 14px 0 18px;
+              }
+
+              @media (min-width: 768px) and (max-width: 1439px) {
+                padding: 14px 52px 18px;
+              }
+
+              @media (max-width: 767px) {
+                padding: 18px 51px 22px;
+              }
+
+              &.activeButton {
+                cursor: pointer;
+
+                &:hover {
+                  background-color: #111111 !important;
+                }
+
+                &:active {
+                  background-color: #575757 !important;
+                }
+              }
+
+              &.loadingButton {
+                color: #FF9514;
+
+                + div {
+                  display: block;
+                  width: 20px;
+                  height: 20px;
+                  position: absolute;
+                  @include background-image("../SVG/loadingButton.svg");
+                  @include background-image-settings();
+                  @include animation(Rotate .5s linear infinite);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
